@@ -1,0 +1,1 @@
+Este es el proyecto de arquitectura SOA para el banco ABC. De la universidad Javeriana en la materia de modelado y validación de la arquitectura
