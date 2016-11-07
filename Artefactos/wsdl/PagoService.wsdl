@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://www.ABC.co/Contrato/Service/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PagoService"
+	targetNamespace="http://www.ABC.co/Contrato/Service/" xmlns:ser="http://www.ABC.co/Cuerpo/schemas"
+	xmlns:ser1="http://www.ABC.co/Cabecera/schemas">
+	<wsdl:types>
+		<xsd:schema>
+			<xsd:import schemaLocation="../Schemas/Cuerpo.xsd"
+				namespace="http://www.ABC.co/Cuerpo/schemas" />
+			<xsd:import schemaLocation="../Schemas/Cabecera.xsd"
+				namespace="http://www.ABC.co/Cabecera/schemas" />
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="ActualizaReq">
+		<wsdl:part type="ser:msgEntrada" name="Actualiza" />
+	</wsdl:message>
+	<wsdl:message name="headerActualizaReq">
+		<wsdl:part type="ser1:headerEntrada" name="headerActualizaRequest" />
+	</wsdl:message>
+	<wsdl:message name="ActualizaRes">
+		<wsdl:part type="ser:msgSalida" name="ActualizaResponse" />
+	</wsdl:message>
+	<wsdl:message name="headerActualizaRes">
+		<wsdl:part type="ser1:headerSalida" name="headerActualizaResponse" />
+	</wsdl:message>
+	<wsdl:portType name="PagoService">
+		<wsdl:operation name="Actualizar">
+			<wsdl:input message="tns:ActualizaReq" />
+			<wsdl:output message="tns:ActualizaRes" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="PagoServiceBinding" type="tns:PagoService">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="Actualizar">
+			<soap:operation soapAction="" />
+			<wsdl:input>
+				<soap:header use="literal" part="headerActualizaRequest"
+					message="tns:headerActualizaReq" />
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header use="literal" part="headerActualizaResponse"
+					message="tns:headerActualizaRes" />
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="PagoService">
+		<wsdl:port binding="tns:PagoServiceBinding" name="PagoServicePort">
+			<soap:address location="http://www.ABC.co/PagoService" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

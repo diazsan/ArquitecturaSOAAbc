@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ABC.co/DatosCorreo/schemas"
+	xmlns:tns="http://www.ABC.co/DatosCorreo/schemas" elementFormDefault="qualified"
+	xmlns:pref="http://www.ABC.co/DatosCorreo/schemas" xmlns:Q1="http://www.ABC.co/Cuerpo/schemas">
+	<import schemaLocation="Cuerpo.xsd" namespace="http://www.ABC.co/Cuerpo/schemas"></import>
+	<complexType name="EntradaEstandar">
+		<sequence>
+			<element name="Estandar" type="Q1:msgEntrada"></element>
+			<element name="destino" minOccurs="1" maxOccurs="1">
+				<simpleType>
+					<restriction base="string">
+						<whiteSpace value="collapse"></whiteSpace>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="origen" minOccurs="1" maxOccurs="1">
+				<simpleType>
+					<restriction base="string">
+						<whiteSpace value="collapse"></whiteSpace>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="mensaje" minOccurs="1" maxOccurs="1">
+				<simpleType>
+					<restriction base="string">
+						<whiteSpace value="collapse"></whiteSpace>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="descripcion" minOccurs="1" maxOccurs="1">
+				<simpleType>
+					<restriction base="string">
+						<whiteSpace value="collapse"></whiteSpace>
+					</restriction>
+				</simpleType>
+			</element>
+		</sequence>
+	</complexType>
+</schema>

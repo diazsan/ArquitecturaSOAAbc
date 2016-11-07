@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://www.ABC.co/Cabecera/schemas" targetNamespace="http://www.ABC.co/Cabecera/schemas" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:complexType name="headerEntrada">
+    <xs:sequence>
+      <xs:element name="canalOrigen" minOccurs="1" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:length value="3"/>
+            <xs:enumeration value="CAJ"/>
+            <xs:enumeration value="WEB"/>
+            <xs:enumeration value="BMO"/>
+            <xs:enumeration value="OFI"/>
+            <xs:enumeration value="CNB"/>
+            <xs:enumeration value="IVR"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="canalDestino" minOccurs="1" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:length value="3"/>
+            <xs:enumeration value="ETB"/>
+            <xs:enumeration value="AGU"/>
+            <xs:enumeration value="GAS"/>
+            <xs:enumeration value="LUZ"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="fechaTransaccion" minOccurs="1" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="\d{4}[-]\d{2}[-]\d{2}"/>
+            <xs:length value="10"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="horaTransaccion" minOccurs="1" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="\d{2}[:]\d{2}[:]\d{2}"/>
+            <xs:length value="10"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="headerSalida">
+    <xs:sequence>
+      <xs:element name="codRespuesta" minOccurs="1" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:int">
+            <xs:minExclusive value="0"/>
+            <xs:maxExclusive value="999"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="descRespuesta" minOccurs="1" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:whiteSpace value="collapse"/>
+            <xs:minLength value="1"/>
+            <xs:maxLength value="40"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

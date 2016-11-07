@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://www.ABC.co/Contrato/Service/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="NotificacionService"
+	targetNamespace="http://www.ABC.co/Contrato/Service/" xmlns:ser="http://www.ABC.co/DatosCorreo/schemas"
+	xmlns:ser1="http://www.ABC.co/Cabecera/schemas">
+	<wsdl:types>
+		<xsd:schema>
+			<xsd:import schemaLocation="../Schemas/DatosCorreo.xsd"
+				namespace="http://www.ABC.co/DatosCorreo/schemas" />
+			<xsd:import schemaLocation="../Schemas/Cabecera.xsd"
+				namespace="http://www.ABC.co/Cabecera/schemas" />
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="EnviarReq">
+		<wsdl:part type="ser:EntradaEstandar" name="Envio" />
+	</wsdl:message>
+	<wsdl:message name="headerEnviarReq">
+		<wsdl:part type="ser1:headerEntrada" name="headerEnviarRequest" />
+	</wsdl:message>
+	<wsdl:message name="headerEnviarRes">
+		<wsdl:part type="ser1:headerSalida" name="headerEnviarResponse" />
+	</wsdl:message>
+	<xsd:import schemaLocation="../Schemas/Cabecera.xsd"
+		namespace="http://www.ABC.co/Cabecera/schemas" />
+	<wsdl:portType name="NotificacionService">
+		<wsdl:operation name="Enviar">
+			<wsdl:input message="tns:EnviarReq" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="NotificacionServiceBinding" type="tns:NotificacionService">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="Enviar">
+			<soap:operation soapAction="" />
+			<wsdl:input>
+				<soap:header use="literal" part="headerEnviarRequest"
+					message="tns:headerEnviarReq" />
+				<soap:body use="literal" />
+			</wsdl:input>
+
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="NotificacionService">
+		<wsdl:port binding="tns:NotificacionServiceBinding" name="NotificacionServiceSOAP">
+			<soap:address location="http://www.ABC.co/NotificacionService" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

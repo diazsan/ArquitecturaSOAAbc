@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://www.ABC.co/Cuerpo/schemas"
+	targetNamespace="http://www.ABC.co/Cuerpo/schemas" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:complexType name="msgEntrada">
+		<xs:sequence>
+			<xs:element name="nroIdentificador" minOccurs="1"
+				maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:long">
+						<xs:minExclusive value="1" />
+						<xs:maxExclusive value="99999999999" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="tipoIdentificador" minOccurs="1"
+				maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:length value="3" />
+						<xs:enumeration value="CED" />
+						<xs:enumeration value="NIT" />
+						<xs:enumeration value="CEE" />
+						<xs:enumeration value="REG" />
+						<xs:enumeration value="AHO" />
+						<xs:enumeration value="TCR" />
+						<xs:enumeration value="TDE" />
+						<xs:enumeration value="ETB" />
+						<xs:enumeration value="AGU" />
+						<xs:enumeration value="GAS" />
+						<xs:enumeration value="LUZ" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="fechaAdicional" minOccurs="1" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="\d{4}[-]\d{2}[-]\d{2}" />
+						<xs:length value="10" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="datoEx" minOccurs="0" maxOccurs="1" nillable="true">
+				<xs:simpleType>
+					<xs:union memberTypes="clave valor" />
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="valor">
+		<xs:restriction base="xs:double">
+			<xs:minExclusive value="0"></xs:minExclusive>
+			<xs:maxExclusive value="99999999999"></xs:maxExclusive>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="clave">
+		<xs:restriction base="xs:string">
+			<xs:whiteSpace value="collapse"></xs:whiteSpace>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="msgSalida">
+		<xs:sequence>
+			<xs:element name="nroAutorizacion" minOccurs="1"
+				maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:long">
+						<xs:minExclusive value="0" />
+						<xs:maxExclusive value="9999999999" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="valor" minOccurs="1" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:double">
+						<xs:minExclusive value="0" />
+						<xs:maxExclusive value="999999999999" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

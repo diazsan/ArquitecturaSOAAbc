@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://www.ABC.co/Contrato/Service/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ClienteService"
+	targetNamespace="http://www.ABC.co/Contrato/Service/" xmlns:ser="http://www.ABC.co/Cuerpo/schemas"
+	xmlns:ser1="http://www.ABC.co/Cabecera/schemas" xmlns:ser2="http://www.ABC.co/DatosUsuario/schemas">
+	<wsdl:types>
+		<xsd:schema>
+			<xsd:import schemaLocation="../Schemas/Cuerpo.xsd"
+				namespace="http://www.ABC.co/Cuerpo/schemas" />
+				<xsd:import schemaLocation="../Schemas/DatosUsuario.xsd"
+				namespace="http://www.ABC.co/DatosUsuario/schemas" />
+			<xsd:import schemaLocation="../Schemas/Cabecera.xsd"
+				namespace="http://www.ABC.co/Cabecera/schemas" />
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="ConsultaReq">
+		<wsdl:part type="ser:msgEntrada" name="Consulta" />
+	</wsdl:message>
+	<wsdl:message name="headerConsultaReq">
+		<wsdl:part type="ser1:headerEntrada" name="headerConsultaRequest" />
+	</wsdl:message>
+	<wsdl:message name="ConsultaRes">
+		<wsdl:part type="ser2:SalidaEstandar" name="ConsultaResponse" />
+	</wsdl:message>
+	<wsdl:message name="headerConsultaRes">
+		<wsdl:part type="ser1:headerSalida" name="headerConsultaResponse" />
+	</wsdl:message>
+	<wsdl:portType name="ClienteService">
+		<wsdl:operation name="Consultar">
+			<wsdl:input message="tns:ConsultaReq" />
+			<wsdl:output message="tns:ConsultaRes" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="ClienteServiceBinding" type="tns:ClienteService">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="Consultar">
+			<soap:operation soapAction="" />
+			<wsdl:input>
+				<soap:header use="literal" part="headerConsultaRequest"
+					message="tns:headerConsultaReq" />
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header use="literal" part="headerConsultaResponse"
+					message="tns:headerConsultaRes" />
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="ClienteService">
+		<wsdl:port binding="tns:ClienteServiceBinding" name="ClienteServicePort">
+			<soap:address location="http://www.ABC.co/ClienteService" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

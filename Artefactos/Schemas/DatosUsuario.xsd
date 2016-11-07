@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.ABC.co/DatosUsuario/schemas"
+	xmlns:tns="http://www.ABC.co/DatosUsuario/schemas"
+	elementFormDefault="qualified"
+	xmlns:pref="http://www.ABC.co/Cuerpo/schemas">
+
+	<import schemaLocation="Cuerpo.xsd" namespace="http://www.ABC.co/Cuerpo/schemas"></import>
+	<complexType name="SalidaEstandar">
+		<sequence>
+			<element name="Estandar" type="pref:msgSalida" minOccurs="1"
+				maxOccurs="1">
+			</element>
+			<element name="primerNombre" minOccurs="1" maxOccurs="1">
+				<simpleType>
+					<restriction base="string">
+						<minLength value="0"></minLength>
+						<maxLength value="25"></maxLength>
+						<whiteSpace value="collapse"></whiteSpace>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="segundoNombre" minOccurs="1" maxOccurs="1">
+				<simpleType>
+					<restriction base="string">
+						<minLength value="0"></minLength>
+						<maxLength value="25"></maxLength>
+						<whiteSpace value="collapse"></whiteSpace>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="primerApellido" minOccurs="1"
+				maxOccurs="1">
+				<simpleType>
+					<restriction base="string">
+						<minLength value="0"></minLength>
+						<maxLength value="25"></maxLength>
+						<whiteSpace value="collapse"></whiteSpace>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="segundoApellido" minOccurs="1"
+				maxOccurs="1">
+				<simpleType>
+					<restriction base="string">
+						<minLength value="0"></minLength>
+						<maxLength value="25"></maxLength>
+						<whiteSpace value="collapse"></whiteSpace>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="direccionCorreo" minOccurs="1"
+				maxOccurs="1">
+				<simpleType>
+					<restriction base="string">
+						<minLength value="0"></minLength>
+						<maxLength value="25"></maxLength>
+						<whiteSpace value="collapse"></whiteSpace>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="nroCelular" minOccurs="1" maxOccurs="1">
+				<simpleType>
+					<restriction base="long">
+						<minExclusive value="0"></minExclusive>
+						<maxExclusive value="9999999999"></maxExclusive>
+					</restriction>
+				</simpleType>
+			</element>
+		</sequence>
+	</complexType>
+</schema>
