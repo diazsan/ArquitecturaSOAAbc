@@ -1,28 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-	xmlns:tns="http://www.ABC.co/Contrato/Service/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:tns="http://www.ABC.co/Servicios/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AutenticacionService"
-	targetNamespace="http://www.ABC.co/Contrato/Service/" xmlns:ser="http://www.ABC.co/Cuerpo/schemas"
-	xmlns:ser1="http://www.ABC.co/Cabecera/schemas">
+	targetNamespace="http://www.ABC.co/Servicios/" >
 	<wsdl:types>
 		<xsd:schema>
 			<xsd:import schemaLocation="../Schemas/Cuerpo.xsd"
-				namespace="http://www.ABC.co/Cuerpo/schemas" />
+				namespace="http://www.ABC.co/Servicios/" />
 			<xsd:import schemaLocation="../Schemas/Cabecera.xsd"
-				namespace="http://www.ABC.co/Cabecera/schemas" />
+				namespace="http://www.ABC.co/Servicios/" />
 		</xsd:schema>
 	</wsdl:types>
 	<wsdl:message name="ConsultaReq">
-		<wsdl:part type="ser:msgEntrada" name="Consulta" />
+		<wsdl:part element="tns:reqEstandar" name="Consulta" />
 	</wsdl:message>
 	<wsdl:message name="headerConsultaReq">
-		<wsdl:part type="ser1:headerEntrada" name="headerConsultaRequest" />
+		<wsdl:part element="tns:headReqEstandar" name="headerConsultaRequest" />
 	</wsdl:message>
 	<wsdl:message name="ConsultaRes">
-		<wsdl:part type="ser:msgSalida" name="ConsultaResponse" />
+		<wsdl:part element="tns:resEstandar" name="ConsultaResponse" />
 	</wsdl:message>
 	<wsdl:message name="headerConsultaRes">
-		<wsdl:part type="ser1:headerSalida" name="headerConsultaResponse" />
+		<wsdl:part element="tns:headResEstandar" name="headerConsultaResponse" />
 	</wsdl:message>
 	<wsdl:portType name="AutenticacionService">
 		<wsdl:operation name="Consultar">

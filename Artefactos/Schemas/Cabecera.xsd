@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns="http://www.ABC.co/Cabecera/schemas" targetNamespace="http://www.ABC.co/Cabecera/schemas" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema xmlns="http://www.ABC.co/Servicios/" targetNamespace="http://www.ABC.co/Servicios/" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:element name="headReqEstandar" type="headerEntrada"/>
+  <xs:element name="headResEstandar" type="headerSalida"/>
   <xs:complexType name="headerEntrada">
     <xs:sequence>
       <xs:element name="canalOrigen" minOccurs="1" maxOccurs="1">

@@ -1,28 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-	xmlns:tns="http://www.ABC.co/Contrato/Service/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:tns="http://www.ABC.co/Servicios/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PagoService"
-	targetNamespace="http://www.ABC.co/Contrato/Service/" xmlns:ser="http://www.ABC.co/Cuerpo/schemas"
-	xmlns:ser1="http://www.ABC.co/Cabecera/schemas">
+	targetNamespace="http://www.ABC.co/Servicios/" >
 	<wsdl:types>
 		<xsd:schema>
 			<xsd:import schemaLocation="../Schemas/Cuerpo.xsd"
-				namespace="http://www.ABC.co/Cuerpo/schemas" />
+				namespace="http://www.ABC.co/Servicios/" />
 			<xsd:import schemaLocation="../Schemas/Cabecera.xsd"
-				namespace="http://www.ABC.co/Cabecera/schemas" />
+				namespace="http://www.ABC.co/Servicios/" />
 		</xsd:schema>
 	</wsdl:types>
 	<wsdl:message name="ActualizaReq">
-		<wsdl:part type="ser:msgEntrada" name="Actualiza" />
+		<wsdl:part element="tns:reqEstandar" name="Actualiza" />
 	</wsdl:message>
 	<wsdl:message name="headerActualizaReq">
-		<wsdl:part type="ser1:headerEntrada" name="headerActualizaRequest" />
+		<wsdl:part element="tns:headReqEstandar" name="headerActualizaRequest" />
 	</wsdl:message>
 	<wsdl:message name="ActualizaRes">
-		<wsdl:part type="ser:msgSalida" name="ActualizaResponse" />
+		<wsdl:part element="tns:resEstandar" name="ActualizaResponse" />
 	</wsdl:message>
 	<wsdl:message name="headerActualizaRes">
-		<wsdl:part type="ser1:headerSalida" name="headerActualizaResponse" />
+		<wsdl:part element="tns:headResEstandar" name="headerActualizaResponse" />
 	</wsdl:message>
 	<wsdl:portType name="PagoService">
 		<wsdl:operation name="Actualizar">

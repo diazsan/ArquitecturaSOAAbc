@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns="http://www.ABC.co/Cuerpo/schemas"
-	targetNamespace="http://www.ABC.co/Cuerpo/schemas" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+<xs:schema xmlns="http://www.ABC.co/Servicios/"
+	targetNamespace="http://www.ABC.co/Servicios/" xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="reqEstandar" type="msgEntrada"/>
+	<xs:element name="resEstandar" type="msgSalida"/>
 	<xs:complexType name="msgEntrada">
 		<xs:sequence>
 			<xs:element name="nroIdentificador" minOccurs="1"

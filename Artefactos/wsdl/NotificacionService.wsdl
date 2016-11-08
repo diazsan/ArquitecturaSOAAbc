@@ -1,28 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-	xmlns:tns="http://www.ABC.co/Contrato/Service/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:tns="http://www.ABC.co/Servicios/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="NotificacionService"
-	targetNamespace="http://www.ABC.co/Contrato/Service/" xmlns:ser="http://www.ABC.co/DatosCorreo/schemas"
-	xmlns:ser1="http://www.ABC.co/Cabecera/schemas">
+	targetNamespace="http://www.ABC.co/Servicios/" >
 	<wsdl:types>
 		<xsd:schema>
 			<xsd:import schemaLocation="../Schemas/DatosCorreo.xsd"
-				namespace="http://www.ABC.co/DatosCorreo/schemas" />
+				namespace="http://www.ABC.co/Servicios/" />
 			<xsd:import schemaLocation="../Schemas/Cabecera.xsd"
-				namespace="http://www.ABC.co/Cabecera/schemas" />
+				namespace="http://www.ABC.co/Servicios/" />
 		</xsd:schema>
 	</wsdl:types>
 	<wsdl:message name="EnviarReq">
-		<wsdl:part type="ser:EntradaEstandar" name="Envio" />
+		<wsdl:part element="tns:reqEnvio" name="Envio" />
 	</wsdl:message>
 	<wsdl:message name="headerEnviarReq">
-		<wsdl:part type="ser1:headerEntrada" name="headerEnviarRequest" />
+		<wsdl:part element="tns:headReqEstandar" name="headerEnviarRequest" />
 	</wsdl:message>
 	<wsdl:message name="headerEnviarRes">
-		<wsdl:part type="ser1:headerSalida" name="headerEnviarResponse" />
+		<wsdl:part element="tns:headResEstandar" name="headerEnviarResponse" />
 	</wsdl:message>
-	<xsd:import schemaLocation="../Schemas/Cabecera.xsd"
-		namespace="http://www.ABC.co/Cabecera/schemas" />
 	<wsdl:portType name="NotificacionService">
 		<wsdl:operation name="Enviar">
 			<wsdl:input message="tns:EnviarReq" />
